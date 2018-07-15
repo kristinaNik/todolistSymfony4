@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <h1 class="text-center">My Todo List</h1>
     <div class="container">
+      <div class="search-container pull-right">
+       {{  render(controller(
+           'App\\Controller\\TodoController::SearchBarAction'
+       ))}}
+
+      </div>
 <table class="table">
   <thead>
     <tr>

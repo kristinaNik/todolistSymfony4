@@ -196,4 +196,23 @@ class TodoController extends Controller
         return $this->redirectToRoute('todo_list');
           
     }
+
+    public function searchBarAction() {
+        $form = $this->createFormBuilder(null)
+            ->add('search', TextType::class)
+            ->getForm();
+
+        return $this->render('todo/searchBar.html.twig', array(
+            'form' => $form->createView()
+        ));
+
+    }
+
+    /**
+     * @Route("/todo/search", name="handleSearch")
+     * @param Request $request
+     */
+    public function handleSearch(Request $request) {
+        var_dump($request->request); die();
+    }
 }
