@@ -21,4 +21,21 @@ class TodoRepository extends ServiceEntityRepository
 
 
 
+    public function getSearchParams($number, $name, $category)
+    {
+         //var_dump($name); die();
+
+        $qb = $this->createQueryBuilder('p')
+            ->where('p.name LIKE :name')
+            ->andWhere('p.category LIKE :category')
+            ->andWhere('p.id LIKE :number')
+            ->setParameters(['number'=> '%'.$number .'%','name'=> '%'. $name. '%', 'category' => '%'. $category. '%' ])
+            ->getQuery();
+
+            $result = $qb->execute();
+
+        return $result;
+
+    }
+
 }
