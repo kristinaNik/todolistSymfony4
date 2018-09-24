@@ -12,3 +12,12 @@ app_lucky_number:
 todo_list:
     path: /
     controller: App\Controller\TodoController:listAction
+
+
+todo_meetings:
+    path: /meetings/create
+    controller: App\Controller\MeetingsController:createMeetings
+
+todo_view_meetings:
+    path: /meetings/view
+    controller: App\Controller\MeetingsController:viewMeetings
